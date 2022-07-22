@@ -6,14 +6,14 @@ spec:
   selector:
     matchLabels:
       app: tilt-workshop-app
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
         app: tilt-workshop-app
     spec:
       containers:
-      - name: tilt-workshop-app
-        image: localhost:35000/tilt-workshop-app:latest
-        ports:
-        - containerPort: 80
+        - name: tilt-workshop-app
+          image: localhost:35000/tilt-workshop-app:latest
+          ports:
+            - containerPort: 80
