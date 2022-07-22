@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tilt-workshop-app
+spec:
+  selector:
+    matchLabels:
+      app: tilt-workshop-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tilt-workshop-app
+    spec:
+      containers:
+      - name: tilt-workshop-app
+        image: localhost:35000/tilt-workshop-app:latest
+        ports:
+        - containerPort: 80
